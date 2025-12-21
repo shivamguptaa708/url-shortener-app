@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { IoIosMenu } from 'react-icons/io';
 import { RxCross2 } from 'react-icons/rx';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useStoreContext } from '../contextApi/ContextApi';
 
 const NavBar = () => {
   const navigate = useNavigate();
+  const { token, setToken } = useStoreContext();
   const location = useLocation();
   const path = location.pathname; // ✅ to highlight the active route
 
@@ -12,17 +14,23 @@ const NavBar = () => {
 
   const onLogOutHandler = () => {
     // TODO: add logout logic if needed
+  setToken(null);
+  localStorage.removeItem("JWT_TOKEN");
+  navigate("/login");
   };
 
   return (
     <div
-      style={{ background: 'linear-gradient(to right, #3b82f6, #9333ea)' }}
+      //style={{ background: 'linear-gradient(to right, #3b82f6, #9333ea)' }}
+
+style={{ background: 'linear-gradient(to right, #f43f5e, #38bdf8)' }}
+
       className="h-16 z-50 flex items-center sticky top-0"
     >
       <div className="lg:px-14 sm:px-8 px-4 w-full flex justify-between items-center">
         <Link to="/">
           <h1 className="font-bold text-3xl text-white italic sm:mt-0 mt-2">
-            Linklytics
+            LinkMetrics
           </h1>
         </Link>
 
@@ -52,12 +60,32 @@ const NavBar = () => {
               About
             </Link>
           </li>
-
+          {token && (
+           <li className="hover:text-btnColor font-[500] transition-all duration-150">
+            <Link
+              className={`${
+                path === '/dashboard' ? 'text-white font-semibold' : 'text-gray-200'
+              }`}
+              to="/dashboard"
+            >
+              Dashboard
+            </Link>
+          </li>
+          )}
+          {!token && (
           <Link to="/register">
             <li className="sm:ml-0 -ml-1 bg-rose-700 text-white cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md hover:bg-rose-600 transition-all duration-150">
               SignUp
             </li>
           </Link>
+          )}
+
+          {token && (
+           <button onClick={onLogOutHandler} className="sm:ml-0 -ml-1 bg-rose-700 text-white cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md hover:bg-rose-600 transition-all duration-150">
+            LogOut
+           </button>
+          )}
+
         </ul>
 
         <button

@@ -96,7 +96,7 @@ const Login = () => {
         <button 
               disabled={loader}
               type='submit'
-              style={{ background: "linear-gradient(to right, #3b82f6, #9333ea)" }}
+              style={{ background: 'linear-gradient(to right, #f43f5e, #38bdf8)' }}
               className='bg-customRed font-semibold text-white w-full py-2 hover:text-slate-400 transition-colors duration-100 rounded-sm my-3'> 
               {loader ? "Loading..." : "Login"}  
               </button>

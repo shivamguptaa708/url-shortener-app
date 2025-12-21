@@ -13,16 +13,16 @@ const LandingPage = () => {
       <div className="lg:flex-row flex-col    lg:py-5   pt-16   lg:gap-10 gap-8 flex justify-between items-center">
         <div className=" flex-1">
             <h1 className='font-bold font-sans text-slate-800 md:text-5xl text-3xl md:leading-[55px] sm:leading-[45px] leading-10 lg:w-full md:w-[70%] w-full'
-            >Linklytics Simplifies URL Shorentening for Efficient sharing </h1>
+            >LinkMetrics Simplifies URL Shorentening for Efficient sharing </h1>
             <p className='text-slate-700 text-sm my-5'>
-              Linklytics streamlines the process of URL shortening, making sharing
+              LinkMetrics streamlines the process of URL shortening, making sharing
             links effortless and efficient. With its user-friendly interface,
-            Linklytics allows you to generate concise, easy-to-share URLs in
-            seconds. Simplify your sharing experience with Linklytics today.
+            LinkMetrics allows you to generate concise, easy-to-share URLs in
+            seconds. Simplify your sharing experience with LinkMetrics today.
             </p>
              <div className="flex items-center gap-3">
               <button
-              style={{ background: "linear-gradient(to right, #3b82f6, #9333ea)" }}
+              style={{ background: 'linear-gradient(to right, #f43f5e, #38bdf8)' }}
               className="w-40 text-white rounded-md py-2">
               Manage Links
               </button>
@@ -34,13 +34,14 @@ const LandingPage = () => {
              </div>
              </div>
 
-             <div className="   flex-1 flex   justify-center w-full">
-              <img      
-              className="sm:w-[480px] w-[400px] object-cover rounded-md"
-              src="/images/img2.png"
-              alt=""
-              /> 
-             </div>
+  <div className="flex-1 flex justify-center w-full overflow-hidden">
+  <img
+    className="sm:w-[210px] w-[400px] h-[300px] object-cover object-top rounded-md"
+    src="/images/LinkImg.png"
+    alt=""
+  />
+</div>
+
          </div>
 
          <div className="sm:pt-12 pt-7">
