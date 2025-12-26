@@ -5,11 +5,14 @@ const ShortenUrlPage = () => {
   const { url } = useParams();
 
   useEffect(() => {
-    if (url) {
-      window.location.replace(
-        `${import.meta.env.VITE_BACKEND_URL}/r/${url}`
-      );
-    }
+    if (!url) return;
+
+    // sanitize double slashes
+    const cleanCode = url.replaceAll('/', '');
+
+    window.location.replace(
+      `${import.meta.env.VITE_BACKEND_URL}/r/${cleanCode}`
+    );
   }, [url]);
 
   return null;
