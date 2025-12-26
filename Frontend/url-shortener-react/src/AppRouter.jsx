@@ -34,10 +34,3 @@ const AppRouter = () => {
 
 export default AppRouter;
 
-export const SubDomainRouter = () => {
-    return(
-         <Routes>
-         <Route path="/:url" element={<ShortenUrlPage/>}/>
-         </Routes>
-    )
-}
