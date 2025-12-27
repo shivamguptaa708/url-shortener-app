@@ -1,21 +1,15 @@
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 const ShortenUrlPage = () => {
-  const { url } = useParams();
+    const { url } = useParams();
 
   useEffect(() => {
-    if (!url) return;
-
-    // sanitize double slashes
-    const cleanCode = url.replaceAll('/', '');
-
-    window.location.replace(
-      `${import.meta.env.VITE_BACKEND_URL}/r/${cleanCode}`
-    );
+   if(url){
+    window.location.href = import.meta.env.VITE_BACKEND_URL + `/${url}`;
+   }
   }, [url]);
-
   return null;
-};
+}
 
-export default ShortenUrlPage;
+export default ShortenUrlPage
